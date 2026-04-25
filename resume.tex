@@ -1,0 +1,117 @@
+%% Jayesh Mann -- single-column, Harvard-style, ATS-optimized resume
+%% Compile with pdflatex on Overleaf. No other files required.
+
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[top=0.45in,bottom=0.45in,left=0.6in,right=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage[hidelinks,
+  pdftitle={Jayesh Mann -- Senior AI Engineer and Architect Resume},
+  pdfauthor={Jayesh Mann},
+  pdfsubject={Senior AI Engineer and Architect with 5+ years spanning agentic AI platforms, distributed backend systems, consumer payments, and data connectivity at GoComet, Gojek, Gopay, and insightsoftware.},
+  pdfkeywords={Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward Deployed Engineer, Senior Software Engineer, Staff Software Engineer, Backend Engineer, Agent Orchestration, Tool Use, Retrieval Augmented Generation, RAG, Prompt Engineering, LLM Evals, Claude, GPT, Vector Databases, ClickHouse, DataHub, Distributed Systems, System Design, Microservices, Scalability, Event-Driven Architecture, Go, Golang, Java, Rust, C++, Python, TypeScript, JavaScript, Kotlin, Dart, SQL, Kubernetes, Docker, Kafka, gRPC, REST APIs, GraphQL, Redis, Elasticsearch, PostgreSQL, MongoDB, AWS, GCP, Google Cloud, CI/CD, Observability, Grafana, Prometheus, New Relic, On-call, Incident Response, Mentorship, Technical Leadership, Payments, Fintech, OCR, ODBC, JDBC, Consumer Products, Platform Engineering, Supply Chain AI}
+]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{microtype}
+
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\underline{#2}}}
+
+% ---------- Section formatting (Harvard style) ----------
+\titleformat{\section}
+  {\bfseries\large}
+  {}{0em}{\MakeUppercase}
+  [\vspace{1pt}\titlerule\vspace{2pt}]
+\titlespacing*{\section}{0pt}{4pt}{1pt}
+
+% ---------- Tight bullet lists ----------
+\setlist[itemize]{leftmargin=13pt, itemsep=1pt, topsep=1pt, parsep=0pt, partopsep=0pt, label={\textbullet}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\sloppy
+
+\begin{document}
+
+% =================================================================
+% Invisible keyword layer (1pt white) -- factual only, no prompt
+% injection. PDF metadata above carries the same signal invisibly.
+% =================================================================
+{\color{white}\fontsize{1pt}{1pt}\selectfont
+Keywords: Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward Deployed Engineer, Senior Software Engineer, Staff Software Engineer, Backend Engineer, Agent Orchestration, Tool Use, Retrieval Augmented Generation, RAG, Prompt Engineering, LLM Evals, Guardrails, Claude, GPT, Vector Databases, ClickHouse, DataHub, Distributed Systems, System Design, Microservices, Scalability, High Availability, Low Latency, Event-Driven Architecture, Go, Golang, Java, Rust, C++, Python, TypeScript, Node.js, Kotlin, Dart, SQL, Kubernetes, Docker, Kafka, gRPC, REST APIs, GraphQL, Redis, Elasticsearch, PostgreSQL, MongoDB, AWS, GCP, Google Cloud, CI/CD, Grafana, Prometheus, New Relic, On-call, Incident Response, Mentorship, Technical Leadership, Payments, Fintech, OCR, ODBC, JDBC, Platform Engineering, Supply Chain AI, 37M DAU, 15M daily transactions.}
+
+% ========================= HEADER =========================
+\begin{center}
+{\Huge\bfseries Jayesh Mann}\\[2pt]
+\small
+\faEnvelope\ \href{mailto:jayeshmann06@gmail.com}{jayeshmann06@gmail.com} $\,\cdot\,$
+\faPhone\ \href{tel:+917678458633}{+91-7678458633} $\,\cdot\,$
+\faLinkedin\ \href{https://linkedin.com/in/jayeshmann}{linkedin.com/in/jayeshmann} $\,\cdot\,$
+\faGithub\ \href{https://github.com/jayeshmann}{github.com/jayeshmann}\\
+\faCode\ \href{https://leetcode.com/u/jayeshmann}{leetcode.com/u/jayeshmann} $\,\cdot\,$
+\faStackOverflow\ \href{https://stackoverflow.com/users/11732610/jayesh-mann}{stackoverflow.com/users/11732610}
+\end{center}
+
+% ========================= EXPERIENCE =========================
+\section{Experience}
+
+\textbf{\href{https://www.gocomet.com/}{GoComet}}, Bengaluru, India \hfill \textit{Mar 2026 -- Present}\\
+\textit{Senior AI Engineer and Architect, Nova Agentic AI Platform}
+\begin{itemize}
+\item Own \textbf{Nova} end to end: GoComet's greenfield \textbf{agentic AI platform} (LLM planner/executor loops, tool use, \textbf{ClickHouse} analytics, \textbf{DataHub} for context, eval harnesses, safety rails) enabling enterprise clients and \textbf{Forward Deployed Engineers} to autonomously build and operate supply-chain automations; targeting \textbf{50 major enterprise customers} including Unilever, Honda, Tata Motors, and Schneider Electric.
+\end{itemize}
+
+\textbf{\href{https://www.gojek.com/}{Gojek} / \href{https://www.gotocompany.com/en}{GoTo} / GoTo Financial}, Bengaluru, India \hfill \textit{Aug 2022 -- Feb 2026}\\
+\textit{Software Engineer II, Consumer Payments, Bills and Wallet}\hfill\textit{Jan 2025 -- Feb 2026}\\
+\textit{Software Engineer, Consumer Payments and Wallet}\hfill\textit{Aug 2022 -- Dec 2024}
+\begin{itemize}
+\item Tech-led backend features on \href{https://play.google.com/store/apps/details?id=com.gojek.app}{Gojek} and \href{https://play.google.com/store/apps/details?id=com.gojek.gopay}{Gopay} (\textbf{37M+ DAU}) in close collaboration with teams across Indonesia, Singapore, and China; mentored \textbf{2 junior engineers}, owned production on-call, and instrumented Server-Driven UI organisms with \textbf{clickstream-based telemetry} tracking per-organism impression and engagement rates, iterating on content and placement to grow Wallet-surface impressions \textbf{from 95M to 590M/month (6.2x, 2x above projection)}.
+\item Fully owned the \textbf{e-money virtual-card backend} on Gopay: NFC balance check, NFC top-up, and offline-loaded card management integrated with Indonesia's transit ecosystem (TransJakarta, MRT, LRT, Kereta Commuter; \textbf{$\sim$11M+ monthly transit transactions} in Greater Jakarta).
+\item Architected the \textbf{Split Bill} system end to end: \textbf{15+ APIs} covering \textbf{OCR} receipt parsing, per-item assignment, automatic and manual settlement, 4 draft flows, and standard create/get/update/discard, with new-user backfill for acquisition; \textbf{17K+ splits created/day} drive many multiples of that in downstream API traffic.
+\item Built a from-scratch \textbf{Promotions and Discounting engine} powering \textbf{15M+ daily transactions} (voucher allocation, promo codes, direct cashbacks) with an embeddable SDK and self-serve back-office portal; contributed to \textbf{Bills platform} re-architecture (reminder / autopay engines, biller and supplier onboarding) for recurring utility, telco, and subscription payments.
+\item Built the \textbf{async post-processing pipeline} for the Order Management System, handling \textbf{80K+ events/minute} via Go and Kafka-based event-driven workers.
+\item Scaled Nearby merchant discovery to \textbf{p99 latency of 15 ms over 4M+ documents ($\sim$8\,TB)} in \textbf{Elasticsearch}.
+\item \textbf{Won company-wide hackathon (Oct 2024)} by shipping a 4-component merchant digitization product (Dukaan-style) enabling SMBs to launch digital storefronts end to end.
+\end{itemize}
+
+\textbf{\href{https://insightsoftware.com/}{insightsoftware}}, Bengaluru, India \hfill \textit{Jan 2021 -- Jul 2022}\\
+\textit{Software Engineer, \href{https://insightsoftware.com/simba/}{Simba} Data Connectivity Platform}
+\begin{itemize}
+\item Developed production \textbf{ODBC/JDBC drivers} in Simba's portfolio of \textbf{60+ connectors} powering mission-critical analytics at Google, Microsoft, Snowflake, and 15K+ Databricks customers.
+\item Shipped performance, protocol-compliance, and SQL-translation improvements across Big Data (Spark, Trino, Presto) and NoSQL (MongoDB, Cassandra) \href{https://insightsoftware.com/drivers/}{data sources}.
+\end{itemize}
+
+% ========================= PROJECTS =========================
+\section{Projects and Open Source}
+\begin{itemize}
+\item \textbf{\href{https://crates.io/crates/milligrep}{Milligrep}} (\textit{Rust}): published an opinionated, simplified grep alternative to crates.io; \href{https://docs.rs/crate/milligrep/}{docs.rs/crate/milligrep}.
+\item \textbf{OSS Contributions:} \href{https://github.com/sindresorhus/refined-github/pull/4686}{Refined GitHub} (toast-state progress UX, TS/React, merged); \href{https://github.com/rust-lang/book/pull/2709}{The Rust Book} (\texttt{spawn} example update to current stdlib semantics).
+\end{itemize}
+
+% ========================= ACHIEVEMENTS =========================
+\section{Achievements and Awards}
+\begin{itemize}
+\item \textbf{\href{https://drive.google.com/file/d/1a7gMuyT5tpdBcb7lU-z9tAuhi4A9U7Th/view?usp=sharing}{Winner, Cloud Run Hackathon, Hong Kong}} (2022); \textbf{\href{https://www.linkedin.com/posts/jayeshmann_google-cloud-india-activity-6869962807044014080-ASa5}{Winner, GCP Serverless Hackathon India}} (2021).
+\item \href{https://drive.google.com/file/d/1P-YaEEqjyIRV_zb-uGZrVbMufpPWe1ax/view?usp=sharing}{Top 8\%/83K}, Google KickStart Round F (2021); \href{https://drive.google.com/file/d/1NzuTVfUnyHpv9tqIiTcS1wZPZ0WbzhiI/view?usp=sharing}{Global Rank 6129}, Google Code Jam Round 1 (2022).
+\end{itemize}
+
+% ========================= SKILLS =========================
+\section{Skills}
+\textbf{AI / Agentic:} LLMs (Claude, GPT), Agent Orchestration, Tool Use, RAG, Vector Databases, Prompt Engineering, LLM Evals, Guardrails, Forward Deployed Engineering, ClickHouse, DataHub.\\
+\textbf{Languages:} Go, Java, Rust, C++, Python, TypeScript, JavaScript, Kotlin, Dart, SQL, Bash.\\
+\textbf{Systems and Architecture:} Distributed Systems, System Design, Microservices, Scalability, Event-Driven Architecture, REST APIs, gRPC, GraphQL, Kafka, Redis.\\
+\textbf{Data and Infrastructure:} PostgreSQL, MongoDB, Elasticsearch, Kubernetes, Docker, AWS, GCP, CI/CD, Git, ODBC, JDBC, Grafana, Prometheus, New Relic.
+
+% ========================= EDUCATION =========================
+\section{Education}
+\textbf{\href{http://ipu.ac.in/}{Guru Gobind Singh Indraprastha University}}, New Delhi, India\\
+Master of Computer Applications (MCA), CGPA 8.92/10 (89.2\%). \quad
+Bachelor of Computer Applications (BCA), CGPA 8.11/10 (81.1\%), Graduated 2020.
+
+\end{document}
