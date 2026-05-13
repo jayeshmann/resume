@@ -18,9 +18,14 @@
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{microtype}
+% ulem gives a controllable underline that sits below descenders and
+% breaks across lines; LaTeX's bare \underline does neither. normalem
+% keeps \em rendering as italic.
+\usepackage[normalem]{ulem}
+\setlength{\ULdepth}{1.4pt}
 
 \let\oldhref\href
-\renewcommand{\href}[2]{\oldhref{#1}{\underline{#2}}}
+\renewcommand{\href}[2]{\oldhref{#1}{\uline{#2}}}
 
 % ---------- Section formatting (Harvard style) ----------
 \titleformat{\section}
