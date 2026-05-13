@@ -1,0 +1,71 @@
+name: Build resume
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Two pushes in quick succession should not race against each other.
+# The PDF is derived output for the current state of main, so a queued
+# older run is stale by definition: cancel it and let the newest build win.
+concurrency:
+  group: build-resume
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set SOURCE_DATE_EPOCH for deterministic build
+        # Without this, LaTeX bakes the current build time into /CreationDate
+        # and /ModDate, so every build produces a byte-different PDF even with
+        # identical source. Pinning to the commit timestamp gives us
+        # reproducible output and lets us skip no-op commits below.
+        run: echo "SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)" >> "$GITHUB_ENV"
+
+      - name: Compile resume.tex
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: resume.tex
+
+      - name: Rename PDF to canonical filename
+        run: mv -f resume.pdf Jayesh_Mann_Resume.pdf
+
+      - name: Detect whether PDF actually changed
+        id: changed
+        run: |
+          if [[ -z "$(git status --porcelain Jayesh_Mann_Resume.pdf)" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "PDF is byte-identical to the committed version; skipping commit and tag."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit PDF and force-move date tag
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          DATE_TAG=$(date -u +'%Y%m%d')
+
+          git add Jayesh_Mann_Resume.pdf
+          git commit -m "auto: rebuild resume PDF [skip ci]"
+
+          # Date tag is intentionally mutable: last push of the day wins.
+          # Force-move it to the new HEAD locally.
+          git tag -f "$DATE_TAG"
+
+          # Publish branch and tag atomically. If either ref update fails,
+          # neither is published, so we never end up with the PDF commit on
+          # main but a stale or missing date tag (or vice versa). The leading
+          # `+` is on the tag ref only, so the branch update stays
+          # fast-forward-only and cannot clobber concurrent main pushes.
+          git push --atomic origin HEAD:main "+refs/tags/$DATE_TAG"
