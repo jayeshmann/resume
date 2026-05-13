@@ -3,10 +3,11 @@
 
 \documentclass[11pt,letterpaper]{article}
 
-\usepackage[top=0.45in,bottom=0.45in,left=0.6in,right=0.6in]{geometry}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{charter}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
 \usepackage[hidelinks,
   pdftitle={Jayesh Mann -- Senior AI Engineer and Architect Resume},
   pdfauthor={Jayesh Mann},
@@ -16,7 +17,6 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{xcolor}
-\usepackage{fontawesome}
 \usepackage{microtype}
 
 \let\oldhref\href
@@ -26,11 +26,11 @@
 \titleformat{\section}
   {\bfseries\large}
   {}{0em}{\MakeUppercase}
-  [\vspace{1pt}\titlerule\vspace{2pt}]
-\titlespacing*{\section}{0pt}{4pt}{1pt}
+  [\vspace{1pt}\titlerule\vspace{3pt}]
+\titlespacing*{\section}{0pt}{8pt}{2pt}
 
-% ---------- Tight bullet lists ----------
-\setlist[itemize]{leftmargin=13pt, itemsep=1pt, topsep=1pt, parsep=0pt, partopsep=0pt, label={\textbullet}}
+% ---------- Bullet lists ----------
+\setlist[itemize]{leftmargin=15pt, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt, label={\textbullet}}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -48,15 +48,18 @@ Keywords: Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward De
 
 % ========================= HEADER =========================
 \begin{center}
-{\Huge\bfseries Jayesh Mann}\\[2pt]
-\small
-\faEnvelope\ \href{mailto:jayeshmann06@gmail.com}{jayeshmann06@gmail.com} $\,\cdot\,$
-\faPhone\ \href{tel:+917678458633}{+91-7678458633} $\,\cdot\,$
-\faLinkedin\ \href{https://linkedin.com/in/jayeshmann}{linkedin.com/in/jayeshmann} $\,\cdot\,$
-\faGithub\ \href{https://github.com/jayeshmann}{github.com/jayeshmann}\\
-\faCode\ \href{https://leetcode.com/u/jayeshmann}{leetcode.com/u/jayeshmann} $\,\cdot\,$
-\faStackOverflow\ \href{https://stackoverflow.com/users/11732610/jayesh-mann}{stackoverflow.com/users/11732610}
+{\Huge\bfseries Jayesh Mann}\\[4pt]
+\href{mailto:jayeshmann06@gmail.com}{jayeshmann06@gmail.com} \textbullet\
+\href{tel:+917678458633}{+91-7678458633} \textbullet\
+\href{https://linkedin.com/in/jayeshmann}{linkedin.com/in/jayeshmann} \textbullet\
+\href{https://github.com/jayeshmann}{github.com/jayeshmann}\\
+\href{https://leetcode.com/u/jayeshmann}{leetcode.com/u/jayeshmann} \textbullet\
+\href{https://stackoverflow.com/users/11732610/jayesh-mann}{stackoverflow.com/users/11732610}
 \end{center}
+
+% ========================= SUMMARY =========================
+\section{Summary}
+Senior AI Engineer and Architect with 5+ years across agentic AI platforms, distributed backend systems, and consumer payments. Owns \textbf{Nova} end to end at GoComet, a greenfield agentic AI platform targeting 50 major enterprise customers. Previously shipped Wallet, Payments, and Bills features on \href{https://www.gojek.com/}{Gojek}/\href{https://www.gopay.co.id/}{Gopay} serving \textbf{37M+ DAU}, and developed ODBC/JDBC drivers in insightsoftware's Simba portfolio used at Google, Microsoft, Snowflake, and 15K+ Databricks customers.
 
 % ========================= EXPERIENCE =========================
 \section{Experience}
@@ -74,7 +77,8 @@ Keywords: Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward De
 \item Tech-led backend features on \href{https://play.google.com/store/apps/details?id=com.gojek.app}{Gojek} and \href{https://play.google.com/store/apps/details?id=com.gojek.gopay}{Gopay} (\textbf{37M+ DAU}) in close collaboration with teams across Indonesia, Singapore, and China; mentored \textbf{2 junior engineers}, owned production on-call, and instrumented Server-Driven UI organisms with \textbf{clickstream-based telemetry} tracking per-organism impression and engagement rates, iterating on content and placement to grow Wallet-surface impressions \textbf{from 95M to 590M/month (6.2x, 2x above projection)}.
 \item Fully owned the \textbf{e-money virtual-card backend} on Gopay: NFC balance check, NFC top-up, and offline-loaded card management integrated with Indonesia's transit ecosystem (TransJakarta, MRT, LRT, Kereta Commuter; \textbf{$\sim$11M+ monthly transit transactions} in Greater Jakarta).
 \item Architected the \textbf{Split Bill} system end to end: \textbf{15+ APIs} covering \textbf{OCR} receipt parsing, per-item assignment, automatic and manual settlement, 4 draft flows, and standard create/get/update/discard, with new-user backfill for acquisition; \textbf{17K+ splits created/day} drive many multiples of that in downstream API traffic.
-\item Built a from-scratch \textbf{Promotions and Discounting engine} powering \textbf{15M+ daily transactions} (voucher allocation, promo codes, direct cashbacks) with an embeddable SDK and self-serve back-office portal; contributed to \textbf{Bills platform} re-architecture (reminder / autopay engines, biller and supplier onboarding) for recurring utility, telco, and subscription payments.
+\item Built a from-scratch \textbf{Promotions and Discounting engine} powering \textbf{15M+ daily transactions} (voucher allocation, promo codes, direct cashbacks) with an embeddable SDK and self-serve back-office portal.
+\item Contributed to the \textbf{Bills platform} re-architecture (reminder and autopay engines, biller and supplier onboarding) for recurring utility, telco, and subscription payments.
 \item Built the \textbf{async post-processing pipeline} for the Order Management System, handling \textbf{80K+ events/minute} via Go and Kafka-based event-driven workers.
 \item Scaled Nearby merchant discovery to \textbf{p99 latency of 15 ms over 4M+ documents ($\sim$8\,TB)} in \textbf{Elasticsearch}.
 \item \textbf{Won company-wide hackathon (Oct 2024)} by shipping a 4-component merchant digitization product (Dukaan-style) enabling SMBs to launch digital storefronts end to end.
@@ -91,7 +95,8 @@ Keywords: Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward De
 \section{Projects and Open Source}
 \begin{itemize}
 \item \textbf{\href{https://crates.io/crates/milligrep}{Milligrep}} (\textit{Rust}): published an opinionated, simplified grep alternative to crates.io; \href{https://docs.rs/crate/milligrep/}{docs.rs/crate/milligrep}.
-\item \textbf{OSS Contributions:} \href{https://github.com/sindresorhus/refined-github/pull/4686}{Refined GitHub} (toast-state progress UX, TS/React, merged); \href{https://github.com/rust-lang/book/pull/2709}{The Rust Book} (\texttt{spawn} example update to current stdlib semantics).
+\item \textbf{\href{https://github.com/sindresorhus/refined-github/pull/4686}{Refined GitHub}}: contributed toast-state progress UX (TypeScript/React) and shipped it in a merged pull request.
+\item \textbf{\href{https://github.com/rust-lang/book/pull/2709}{The Rust Book}}: updated the \texttt{spawn} example to match current Rust standard-library semantics.
 \end{itemize}
 
 % ========================= ACHIEVEMENTS =========================
@@ -103,10 +108,11 @@ Keywords: Senior AI Engineer, AI Architect, Agentic AI, LLM Engineer, Forward De
 
 % ========================= SKILLS =========================
 \section{Skills}
-\textbf{AI / Agentic:} LLMs (Claude, GPT), Agent Orchestration, Tool Use, RAG, Vector Databases, Prompt Engineering, LLM Evals, Guardrails, Forward Deployed Engineering, ClickHouse, DataHub.\\
+\textbf{AI and Agentic:} LLMs (Claude, GPT), Agent Orchestration, Tool Use, RAG, Vector Databases, Prompt Engineering, LLM Evals, Guardrails, Forward Deployed Engineering, ClickHouse, DataHub.\\
 \textbf{Languages:} Go, Java, Rust, C++, Python, TypeScript, JavaScript, Kotlin, Dart, SQL, Bash.\\
 \textbf{Systems and Architecture:} Distributed Systems, System Design, Microservices, Scalability, Event-Driven Architecture, REST APIs, gRPC, GraphQL, Kafka, Redis.\\
-\textbf{Data and Infrastructure:} PostgreSQL, MongoDB, Elasticsearch, Kubernetes, Docker, AWS, GCP, CI/CD, Git, ODBC, JDBC, Grafana, Prometheus, New Relic.
+\textbf{Data and Infrastructure:} PostgreSQL, MongoDB, Elasticsearch, Kubernetes, Docker, AWS, GCP, CI/CD, Git, ODBC, JDBC.\\
+\textbf{Observability and Practice:} Grafana, Prometheus, New Relic, On-call and Incident Response, Code Review, Mentorship, Test-Driven Development.
 
 % ========================= EDUCATION =========================
 \section{Education}

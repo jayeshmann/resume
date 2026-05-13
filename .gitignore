@@ -11,3 +11,9 @@
 *.nav
 *.snm
 *.vrb
+
+# Intermediate PDF from local compiles. The deployed PDF is renamed by CI.
+resume.pdf
+
+# Harvard reference guide (copyrighted; kept locally as style spec only).
+Havard Resume Guide.pdf
